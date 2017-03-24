@@ -5,25 +5,24 @@ class Stopwatch extends Component {
   constructor() {
     super()
     this.state = {
-      time: 0
+      time: 0,
+      started: null
     }
   }
   resetButton(){
-    clearInterval(this.state.time)
-    this.state.time = 0
+    clearInterval(this.state.started)
+    this.setState({
+      time: 0
+    })
   }
   startButton(){
-    setInterval(() => {
+    const timerOn = setInterval(() => {
       this.setState({
         time: this.state.time + 1,
+        started: timerOn
       })
     }, 1000)
   }
-  // startButton(){
-  //   this.setState(
-  //      time: setInterval(() => {this.state.time + 1}, 1000)
-  //   )
-  // }
 
   render() {
     return (
